@@ -15,14 +15,17 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageSelector } from "@/components/language-selector";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { modules } from "@/lib/modules";
 import { solutions } from "@/lib/solutions";
+import { useLanguage } from "@/components/language-provider";
 
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isMobileOpen, setIsMobileOpen] = React.useState(false);
+    const { t } = useLanguage();
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -36,7 +39,7 @@ export default function Navigation() {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+                "sticky top-0 z-50 transition-all duration-300 border-b w-full",
                 isScrolled
                     ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
                     : "bg-background/90 backdrop-blur"
@@ -64,12 +67,12 @@ export default function Navigation() {
                             <NavigationMenuList>
                                 {/* Apps Menu */}
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Apps</NavigationMenuTrigger>
+                                    <NavigationMenuTrigger>{t("nav.apps")}</NavigationMenuTrigger>
                                     <NavigationMenuContent className="px-0 py-1">
                                         <div className="grid grid-cols-3 gap-3 p-4 w-[900px] divide-x">
                                             <div className="col-span-2">
                                                 <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground mb-2.5">
-                                                    All Apps
+                                                    {t("nav.allApps")}
                                                 </h6>
                                                 <ul className="grid grid-cols-2 gap-3">
                                                     {modules.map((module) => (
@@ -87,7 +90,7 @@ export default function Navigation() {
 
                                             <div className="pl-4">
                                                 <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground mb-2.5">
-                                                    Featured
+                                                    {t("nav.featured")}
                                                 </h6>
                                                 <ul className="grid gap-3">
                                                     {modules.slice(0, 3).map((module) => (
@@ -108,10 +111,10 @@ export default function Navigation() {
 
                                 {/* Solutions Menu */}
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+                                    <NavigationMenuTrigger>{t("nav.solutions")}</NavigationMenuTrigger>
                                     <NavigationMenuContent className="p-4">
                                         <h6 className="pl-2.5 font-semibold uppercase text-sm text-muted-foreground mb-2.5">
-                                            HD Solutions
+                                            {t("nav.hdSolutions")}
                                         </h6>
                                         <ul className="grid w-[400px] gap-3 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                                             {solutions.slice(0, 6).map((solution) => (
@@ -132,7 +135,7 @@ export default function Navigation() {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
                                         <Link href="#community" className={navigationMenuTriggerStyle()}>
-                                            Community
+                                            {t("nav.community")}
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
@@ -140,7 +143,7 @@ export default function Navigation() {
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
                                         <Link href="#pricing" className={navigationMenuTriggerStyle()}>
-                                            Pricing
+                                            {t("nav.pricing")}
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
@@ -152,12 +155,14 @@ export default function Navigation() {
                     <div className="flex items-center gap-4">
                         {/* Desktop Actions */}
                         <div className="hidden md:flex items-center gap-4">
+                            <LanguageSelector />
                             <ThemeToggle />
-                            <Button size="sm">Get Started</Button>
+                            <Button size="sm">{t("nav.getStarted")}</Button>
                         </div>
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden flex items-center gap-2">
+                            <LanguageSelector />
                             <ThemeToggle />
                             <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
                                 <SheetTrigger asChild>

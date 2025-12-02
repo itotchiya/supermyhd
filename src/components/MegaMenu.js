@@ -3,8 +3,10 @@
 import Link from "next/link";
 import * as Icons from "lucide-react";
 import { modules } from "@/lib/modules";
+import { useLanguage } from "@/components/language-provider";
 
 export default function MegaMenu({ isOpen }) {
+    const { t } = useLanguage();
     if (!isOpen) return null;
 
     return (
