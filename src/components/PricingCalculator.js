@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,22 +12,22 @@ import { useLanguage } from "@/components/language-provider";
 
 // Popular business apps with their pricing
 const competitorApps = [
-    { id: "asana", name: "Asana", category: "Project", pricePerUser: 20, logo: "📋" },
-    { id: "quickbooks", name: "QuickBooks", category: "Accounting", pricePerUser: 76, logo: "📊" },
-    { id: "shopify", name: "Shopify", category: "eCommerce", pricePerUser: 79, logo: "🛍️" },
-    { id: "salesforce", name: "Salesforce", category: "CRM", pricePerUser: 165, logo: "☁️" },
-    { id: "slack", name: "Slack", category: "Discuss", pricePerUser: 14.10, logo: "💬" },
-    { id: "notion", name: "Notion", category: "Knowledge", pricePerUser: 14, logo: "📝" },
-    { id: "bamboohr", name: "BambooHR", category: "HR", pricePerUser: 8, logo: "👥" },
-    { id: "figma", name: "Figma", category: "Design", pricePerUser: 15, logo: "🎨" },
-    { id: "inventory", name: "Inventory", category: "Inventory", pricePerUser: 45, logo: "📦" },
-    { id: "wordpress", name: "WordPress", category: "Website", pricePerUser: 25, logo: "🌐" },
-    { id: "docusign", name: "DocuSign", category: "Documents", pricePerUser: 38, logo: "📄" },
-    { id: "square", name: "Square", category: "PoS", pricePerUser: 60, logo: "💳" },
-    { id: "expensify", name: "Expensify", category: "Expenses", pricePerUser: 9, logo: "💰" },
-    { id: "calendly", name: "Calendly", category: "Schedule", pricePerUser: 16, logo: "📅" },
-    { id: "zendesk", name: "Zendesk", category: "Support", pricePerUser: 115, logo: "🎧" },
-    { id: "hubspot", name: "HubSpot", category: "Marketing", pricePerUser: 90, logo: "📈" },
+    { id: "asana", name: "Asana", category: "Project", pricePerUser: 20, baseFee: 0, pricingType: "perUser", logo: "/Assets/Asana.png" },
+    { id: "quickbooks", name: "QuickBooks", category: "Accounting", pricePerUser: 0, baseFee: 76, pricingType: "flat", logo: "/Assets/Quickbooks.png" },
+    { id: "shopify", name: "Shopify", category: "eCommerce", pricePerUser: 0, baseFee: 79, revenuePercent: 1, pricingType: "revenue", logo: "/Assets/Shopify.png" },
+    { id: "salesforce", name: "Salesforce", category: "CRM", pricePerUser: 165, baseFee: 0, pricingType: "perUser", logo: "/Assets/SalesForce.png" },
+    { id: "slack", name: "Slack", category: "Discuss", pricePerUser: 14.10, baseFee: 0, pricingType: "perUser", logo: "/Assets/Slack.png" },
+    { id: "notion", name: "Notion", category: "Knowledge", pricePerUser: 14, baseFee: 0, pricingType: "perUser", logo: "/Assets/Notion.png" },
+    { id: "bamboohr", name: "BambooHR", category: "HR", pricePerUser: 10, baseFee: 99, pricingType: "combo", logo: "/Assets/BambooHR.png" },
+    { id: "figma", name: "Figma", category: "Design", pricePerUser: 15, baseFee: 0, pricingType: "perUser", logo: "/Assets/Figma.png" },
+    { id: "inventory", name: "InFlow Inventory", category: "Inventory", pricePerUser: 0, baseFee: 349, pricingType: "flat", logo: "/Assets/inFlow-Inventory.png" },
+    { id: "wordpress", name: "WordPress", category: "Website", pricePerUser: 0, baseFee: 25, pricingType: "flat", logo: "/Assets/WordPress.png" },
+    { id: "docusign", name: "DocuSign", category: "Documents", pricePerUser: 38, baseFee: 0, pricingType: "perUser", logo: "/Assets/DocuSign.png" },
+    { id: "square", name: "Square", category: "PoS", pricePerUser: 0, baseFee: 60, pricingType: "flat", logo: "/Assets/Square.png" },
+    { id: "expensify", name: "Expensify", category: "Expenses", pricePerUser: 9, baseFee: 0, pricingType: "perUser", logo: "/Assets/Expensify.png" },
+    { id: "calendly", name: "Calendly", category: "Schedule", pricePerUser: 16, baseFee: 0, pricingType: "perUser", logo: "/Assets/Calendly.png" },
+    { id: "zendesk", name: "Zendesk", category: "Support", pricePerUser: 115, baseFee: 0, pricingType: "perUser", logo: "/Assets/Zendesk.png" },
+    { id: "hubspot", name: "HubSpot", category: "Marketing", pricePerUser: 90, baseFee: 0, pricingType: "perUser", logo: "/Assets/hubspot.png" },
 ];
 
 export default function PricingCalculator() {
@@ -48,11 +49,44 @@ export default function PricingCalculator() {
     const incrementUsers = () => setUsers((prev) => Math.min(prev + 1, 1000));
     const decrementUsers = () => setUsers((prev) => Math.max(prev - 1, 1));
 
+    // Calculate total for an individual app based on pricing type
+    const calculateAppCost = (app, numUsers) => {
+        switch (app.pricingType) {
+            case "perUser":
+                return app.pricePerUser * numUsers;
+            case "flat":
+                return app.baseFee;
+            case "combo":
+                return app.baseFee + (app.pricePerUser * numUsers);
+            case "revenue":
+                // For revenue-based, we just show base fee (can't calculate percentage without actual revenue)
+                return app.baseFee;
+            default:
+                return 0;
+        }
+    };
+
+    // Get pricing display text for receipt
+    const getPricingDisplay = (app) => {
+        switch (app.pricingType) {
+            case "perUser":
+                return `$ ${app.pricePerUser} / user`;
+            case "flat":
+                return `$ ${app.baseFee}`;
+            case "combo":
+                return `$ ${app.baseFee} + $ ${app.pricePerUser} / user`;
+            case "revenue":
+                return `${app.revenuePercent}% Revenue + $ ${app.baseFee}`;
+            default:
+                return "";
+        }
+    };
+
     // Calculate totals
     const calculateCompetitorTotal = () => {
         return selectedApps.reduce((total, appId) => {
             const app = competitorApps.find((a) => a.id === appId);
-            return total + (app ? app.pricePerUser * users : 0);
+            return total + (app ? calculateAppCost(app, users) : 0);
         }, 0);
     };
 
@@ -97,7 +131,14 @@ export default function PricingCalculator() {
                                             onCheckedChange={(checked) => handleAppToggle(app.id, checked)}
                                             className="relative ring-[1px] ring-border rounded-lg p-4 text-center transition-all cursor-pointer hover:ring-primary/50 data-[state=checked]:ring-2 data-[state=checked]:ring-primary data-[state=checked]:bg-primary/5"
                                         >
-                                            <div className="text-4xl mb-2">{app.logo}</div>
+                                            <div className="w-12 h-12 mx-auto mb-2 relative">
+                                                <Image
+                                                    src={app.logo}
+                                                    alt={app.name}
+                                                    fill
+                                                    className="object-contain"
+                                                />
+                                            </div>
                                             <div className="font-medium text-sm mb-1">{app.name}</div>
                                             <div className="text-xs text-muted-foreground">{app.category}</div>
 
@@ -155,8 +196,8 @@ export default function PricingCalculator() {
                                 </p>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                {/* Selected Apps List */}
-                                <div className="space-y-2 max-h-64 overflow-y-auto">
+                                {/* Selected Apps List - No scrollbar, adaptable height */}
+                                <div className="space-y-1">
                                     {selectedApps.length === 0 ? (
                                         <p className="text-sm text-muted-foreground text-center py-8">
                                             {t("pricingCalculator.selectApps")}
@@ -165,10 +206,10 @@ export default function PricingCalculator() {
                                         selectedApps.map((appId) => {
                                             const app = competitorApps.find((a) => a.id === appId);
                                             return (
-                                                <div key={appId} className="flex justify-between text-sm">
-                                                    <span>{app.name}</span>
-                                                    <span className="font-medium">
-                                                        ${(app.pricePerUser * users).toFixed(2)}
+                                                <div key={appId} className="flex justify-between items-center text-sm gap-2">
+                                                    <span className="text-muted-foreground">{app.name}</span>
+                                                    <span className="font-medium text-right whitespace-nowrap">
+                                                        {getPricingDisplay(app)}
                                                     </span>
                                                 </div>
                                             );
@@ -190,8 +231,8 @@ export default function PricingCalculator() {
 
                                         <Separator className="my-4" />
 
-                                        {/* Havet Digital Solution */}
-                                        <div className="bg-primary/10 rounded-lg p-4 space-y-2">
+                                        {/* Havet Digital Solution - Glowing Border */}
+                                        <div className="glowing-border p-4 rounded-lg space-y-2">
                                             <div className="flex justify-between items-center">
                                                 <span className="font-semibold">{t("pricingCalculator.allHavetApps")}</span>
                                             </div>

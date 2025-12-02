@@ -207,6 +207,54 @@ h1 {
   }
 }
 
+/* Glowing Border Animation */
+@keyframes border-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glowing-border {
+  position: relative;
+  border-radius: var(--radius);
+  z-index: 1;
+}
+
+.glowing-border::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  /* Border thickness */
+  border-radius: inherit;
+  background: linear-gradient(45deg,
+      var(--accent-blue),
+      var(--accent-purple),
+      var(--accent-teal),
+      var(--accent-blue));
+  background-size: 300% 300%;
+  animation: border-rotate 4s ease infinite;
+  z-index: -1;
+  opacity: 1;
+  /* Full opacity for solid border */
+}
+
+.glowing-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--card);
+  z-index: -1;
+}
+
 /* Utility Classes */
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
