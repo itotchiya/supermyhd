@@ -2,6 +2,7 @@
 
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import PricingCalculator from "@/components/PricingCalculator";
 import AppCard from "@/components/AppCard";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +20,9 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+
+      {/* Pricing Calculator */}
+      <PricingCalculator />
 
       {/* Apps Section */}
       <section id="apps" className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/50">

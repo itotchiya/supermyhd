@@ -1,0 +1,11 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About"
+    },
+    "hero": {
+        "title": "Welcome",
+        "subtitle": "Build fast."
+    },
+    "date_example": "Today is {date, date, long}"
+}

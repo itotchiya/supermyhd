@@ -31,7 +31,8 @@ export const translations = {
         // Apps Section
         apps: {
             title: "Explore Our Apps",
-            subtitle: "A complete suite of integrated solutions to power every aspect of your business",
+            subtitle:
+                "A complete suite of integrated solutions to power every aspect of your business",
             badge: "6 Powerful Modules",
         },
 
@@ -102,9 +103,34 @@ export const translations = {
             },
         },
 
+        // Pricing Calculator
+        pricingCalculator: {
+            badge: "Pricing Calculator",
+            title: "How much are your apps costing you?",
+            subtitle:
+                "Select the apps you use and compare your current costs with Havet Digital's all-in-one solution.",
+            whichApps: "Which apps do you use?",
+            selected: "selected",
+            howManyUsers: "How many users?",
+            appsToReplace: "Apps to replace",
+            forUsersMonth: "for {users} users / month",
+            selectApps: "Select apps to calculate your cost",
+            total: "TOTAL",
+            year: "/ year",
+            month: "/ month",
+            allHavetApps: "All Havet Apps",
+            forUsers: "for {users} users",
+            yourSavings: "Your savings",
+            savePercent: "Save {percent}%",
+            bySwitching: "by switching to Havet Digital",
+            getStarted: "Get Started",
+            perUser: " / user",
+        },
+
         // Footer
         footer: {
-            tagline: "The all-in-one platform for Havet Digital. Manage print, digital, solutions, automation, and data all in one place.",
+            tagline:
+                "The all-in-one platform for Havet Digital. Manage print, digital, solutions, automation, and data all in one place.",
             company: "Company",
             about: "About",
             contact: "Contact",
@@ -117,7 +143,7 @@ export const translations = {
             updates: "Updates",
             getStarted: "Get Started",
             allRightsReserved: "All rights reserved.",
-            trustedBy: "Trusted by leading businesses worldwide",
+            trustedBy: "Trusted by leading companies worldwide",
         },
 
         // Common
@@ -158,17 +184,18 @@ export const translations = {
             startingAt: "À partir de",
             pricePerMonth: "7,25$/mois",
             allAppsIncluded: "Toutes les Applications Incluses",
-            startNow: "Commencer - C'est gratuit",
+            startNow: "Commencer — C'est gratuit",
             meetAdvisor: "Rencontrer un conseiller",
             emailPlaceholder: "Entrez votre email",
             getStarted: "Commencer",
-            noCredit: "Aucune carte de crédit requise • Essai gratuit de 14 jours",
+            noCredit: "Aucune carte bancaire requise • Essai gratuit de 14 jours",
         },
 
         // Apps Section
         apps: {
             title: "Explorez Nos Applications",
-            subtitle: "Une suite complète de solutions intégrées pour alimenter tous les aspects de votre entreprise",
+            subtitle:
+                "Une suite complète de solutions intégrées pour gérer chaque aspect de votre entreprise",
             badge: "6 Modules Puissants",
         },
 
@@ -184,11 +211,13 @@ export const translations = {
         modules: {
             clientPortal: {
                 name: "Portail Client",
-                description: "Expérience client premium avec commande, suivi et support",
+                description:
+                    "Expérience client premium avec commande, suivi et support",
             },
             internalCockpit: {
                 name: "Cockpit Interne",
-                description: "Hub complet de gestion d'équipe et de coordination de projets",
+                description:
+                    "Hub complet de gestion d'équipe et de coordination de projets",
             },
             salesCockpit: {
                 name: "Cockpit Commercial",
@@ -196,11 +225,11 @@ export const translations = {
             },
             supplierPortal: {
                 name: "Portail Fournisseur",
-                description: "Gestion rationalisée des fournisseurs et des achats",
+                description: "Gestion simplifiée des fournisseurs et des achats",
             },
             resellers: {
                 name: "Revendeurs & Distributeurs",
-                description: "Solutions en marque blanche pour les partenaires régionaux",
+                description: "Solutions en marque blanche pour les partenaires",
             },
             dataHub: {
                 name: "Hub de Données & Analytique",
@@ -211,11 +240,12 @@ export const translations = {
         // Solutions
         solutions: {
             title: "Nos Solutions",
-            subtitle: "Services complets adaptés à vos besoins",
+            subtitle: "Des services complets adaptés à vos besoins",
             viewAll: "Voir Toutes les Solutions",
             printServices: {
                 name: "Services d'Impression",
-                description: "Solutions d'impression professionnelles pour tous vos besoins",
+                description:
+                    "Solutions d'impression professionnelles pour tous vos besoins",
             },
             webDevelopment: {
                 name: "Développement Web",
@@ -223,7 +253,8 @@ export const translations = {
             },
             digitalMarketing: {
                 name: "Marketing Digital",
-                description: "Campagnes marketing stratégiques qui donnent des résultats",
+                description:
+                    "Campagnes marketing stratégiques qui offrent des résultats",
             },
             branding: {
                 name: "Branding & Design",
@@ -231,17 +262,43 @@ export const translations = {
             },
             automation: {
                 name: "Automatisation des Affaires",
-                description: "Rationalisez les opérations avec l'automatisation intelligente",
+                description:
+                    "Rationalisez vos opérations grâce à l'automatisation intelligente",
             },
             consulting: {
                 name: "Conseil IT",
-                description: "Conseils d'experts pour votre transformation numérique",
+                description: "Conseils experts pour votre transformation numérique",
             },
+        },
+
+        // Pricing Calculator
+        pricingCalculator: {
+            badge: "Calculateur de coûts",
+            title: "Combien vous coûtent réellement vos applications ?",
+            subtitle:
+                "Sélectionnez les applications que vous utilisez et comparez vos dépenses avec la solution tout-en-un Havet Digital.",
+            whichApps: "Quelles applications utilisez-vous ?",
+            selected: "sélectionné(s)",
+            howManyUsers: "Combien d'utilisateurs ?",
+            appsToReplace: "Applications à remplacer",
+            forUsersMonth: "pour {users} utilisateurs / mois",
+            selectApps: "Sélectionnez des applications pour voir le calcul",
+            total: "TOTAL",
+            year: "/ an",
+            month: "/ mois",
+            allHavetApps: "Toutes les applications Havet",
+            forUsers: "pour {users} utilisateurs",
+            yourSavings: "Vos économies",
+            savePercent: "Économisez {percent}%",
+            bySwitching: "en passant à Havet Digital",
+            getStarted: "Commencer",
+            perUser: " / utilisateur",
         },
 
         // Footer
         footer: {
-            tagline: "La plateforme tout-en-un pour Havet Digital. Gérez l'impression, le numérique, les solutions, l'automatisation et les données en un seul endroit.",
+            tagline:
+                "La plateforme tout-en-un pour Havet Digital. Gérez l'impression, le numérique, les solutions, l'automatisation et les données en un seul endroit.",
             company: "Entreprise",
             about: "À Propos",
             contact: "Contact",
@@ -254,7 +311,7 @@ export const translations = {
             updates: "Mises à Jour",
             getStarted: "Commencer",
             allRightsReserved: "Tous droits réservés.",
-            trustedBy: "Approuvé par les entreprises leaders dans le monde",
+            trustedBy: "Approuvé par des entreprises leaders dans le monde",
         },
 
         // Common
@@ -272,4 +329,5 @@ export const translations = {
             viewMore: "Voir Plus",
         },
     },
+
 };
