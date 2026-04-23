@@ -3,6 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/components/language-provider";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "SuperMyHD - Havet Digital",
@@ -33,9 +34,10 @@ export default function RootLayout({ children }) {
         >
           <LanguageProvider>
             {children}
+            <Footer />
           </LanguageProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }

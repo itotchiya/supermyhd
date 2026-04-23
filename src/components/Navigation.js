@@ -142,7 +142,7 @@ export default function Navigation() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="#pricing" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/pricing" className={navigationMenuTriggerStyle()}>
                                             {t("nav.pricing")}
                                         </Link>
                                     </NavigationMenuLink>

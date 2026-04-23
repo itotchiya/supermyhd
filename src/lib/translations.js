@@ -127,6 +127,63 @@ export const translations = {
             perUser: " / user",
         },
 
+        // Pricing Page
+        pricing: {
+            badge: "Pricing Plans",
+            title: "You are not dreaming!",
+            subtitle: "Choose the perfect plan for your business",
+            yearly: "Yearly",
+            monthly: "Monthly",
+            free: {
+                name: "One App Free",
+                price: "0",
+                description: "One app, unlimited users",
+                feature1: "Odoo Online",
+                cta: "START NOW",
+            },
+            standard: {
+                name: "Standard",
+                price: "7.25",
+                originalPrice: "8.95",
+                description: "All apps",
+                feature1: "Odoo Online",
+                cta: "BUY NOW",
+                trial: "FREE TRIAL",
+            },
+            custom: {
+                name: "Custom",
+                price: "10.90",
+                originalPrice: "18.00",
+                description: "All apps",
+                feature1: "Odoo Online / Odoo.sh",
+                feature2: "On-premise",
+                feature3: "Odoo Studio",
+                feature4: "Multi-Company",
+                feature5: "External API",
+                cta: "BUY NOW",
+                trial: "FREE TRIAL",
+            },
+            perUserPerMonth: "/ user / month",
+        },
+
+        // FAQ
+        faq: {
+            title: "Frequently Asked Questions",
+            subtitle: "Everything you need to know about Havet Digital",
+            q1: "What is included in the free plan?",
+            a1: "The free plan includes access to one app with unlimited users and Odoo Online hosting.",
+            q2: "Can I switch plans anytime?",
+            a2: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.",
+            q3: "Is there a free trial?",
+            a3: "Yes, we offer a 14-day free trial on Standard and Custom plans with no credit card required.",
+            q4: "What payment methods do you accept?",
+            a4: "We accept all major credit cards, PayPal, and wire transfers for annual subscriptions.",
+            q5: "Do you offer refunds?",
+            a5: "Yes, we offer a 30-day money-back guarantee if you're not satisfied with our service.",
+            q6: "Can I cancel my subscription?",
+            a6: "Yes, you can cancel your subscription at any time. Your access will continue until the end of your billing period.",
+        },
+
         // Footer
         footer: {
             tagline:
@@ -293,6 +350,63 @@ export const translations = {
             bySwitching: "en passant à Havet Digital",
             getStarted: "Commencer",
             perUser: " / utilisateur",
+        },
+
+        // Pricing Page
+        pricing: {
+            badge: "Plans Tarifaires",
+            title: "Vous ne rêvez pas !",
+            subtitle: "Choisissez le plan parfait pour votre entreprise",
+            yearly: "Annuel",
+            monthly: "Mensuel",
+            free: {
+                name: "Une App Gratuite",
+                price: "0",
+                description: "Une application, utilisateurs illimités",
+                feature1: "Odoo Online",
+                cta: "COMMENCER",
+            },
+            standard: {
+                name: "Standard",
+                price: "7,25",
+                originalPrice: "8,95",
+                description: "Toutes les applications",
+                feature1: "Odoo Online",
+                cta: "ACHETER",
+                trial: "ESSAI GRATUIT",
+            },
+            custom: {
+                name: "Personnalisé",
+                price: "10,90",
+                originalPrice: "18,00",
+                description: "Toutes les applications",
+                feature1: "Odoo Online / Odoo.sh",
+                feature2: "Sur site",
+                feature3: "Odoo Studio",
+                feature4: "Multi-Société",
+                feature5: "API Externe",
+                cta: "ACHETER",
+                trial: "ESSAI GRATUIT",
+            },
+            perUserPerMonth: "/ utilisateur / mois",
+        },
+
+        // FAQ
+        faq: {
+            title: "Questions Fréquemment Posées",
+            subtitle: "Tout ce que vous devez savoir sur Havet Digital",
+            q1: "Qu'est-ce qui est inclus dans le plan gratuit ?",
+            a1: "Le plan gratuit inclut l'accès à une application avec des utilisateurs illimités et l'hébergement Odoo Online.",
+            q2: "Puis-je changer de plan à tout moment ?",
+            a2: "Oui ! Vous pouvez mettre à niveau ou rétrograder votre plan à tout moment. Les changements prennent effet immédiatement.",
+            q3: "Y a-t-il un essai gratuit ?",
+            a3: "Oui, nous offrons un essai gratuit de 14 jours sur les plans Standard et Personnalisé sans carte bancaire requise.",
+            q4: "Quels modes de paiement acceptez-vous ?",
+            a4: "Nous acceptons toutes les cartes de crédit principales, PayPal et les virements bancaires pour les abonnements annuels.",
+            q5: "Offrez-vous des remboursements ?",
+            a5: "Oui, nous offrons une garantie de remboursement de 30 jours si vous n'êtes pas satisfait de notre service.",
+            q6: "Puis-je annuler mon abonnement ?",
+            a6: "Oui, vous pouvez annuler votre abonnement à tout moment. Votre accès continuera jusqu'à la fin de votre période de facturation.",
         },
 
         // Footer
